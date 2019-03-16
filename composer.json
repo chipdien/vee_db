@@ -1,0 +1,41 @@
+{
+    "name": "Rajamobil.com",
+    "description": "Rajamobil",
+    "keywords": ["php", "slim", "rajamobil"],
+    "homepage": "https://rajamobil.com",
+    "license": "MIT",
+    "authors": [{
+        "name": "Risdyanto Kurniawan",
+        "email": "risdyanto@rajamobil.net",
+        "homepage": "https://rajamobil.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Helpers\\": "helpers/",
+            "Application\\": "application/"
+
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "composer dumpautoload -o"
+        ],
+        "post-update-cmd": [
+            "composer dumpautoload -o"
+        ]
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "slim/slim": "^3.1",
+        "slim/twig-view": "^2.0",
+        "slim/http-cache": "^0.3.0",
+        "slim/flash": "^0.1",
+        "monolog/monolog": "^1.17",
+        "vlucas/phpdotenv": "^2.2",
+        "dopesong/slim-whoops": "^1.0",
+        "guzzlehttp/guzzle": "~6.2",
+        "symfony/http-foundation": "^3.2",
+        "adbario/slim-csrf": "^1.1",
+        "odan/twig-assets": "^1.2"
+    }
+}
