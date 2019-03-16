@@ -1,0 +1,133 @@
+{% block header %} {% set filter_array = ["sales", "login", "karir", "tentangkami", "tim", "contactus", "ketentuan", "sales-dealer", "sales-car-detail", "error", "panduan" ] %}
+<header>
+    <div class="top-header hidden-xs hidden-sm">
+        <div class="container">
+            <ul class="hidden-sm hidden-xs">
+                <li><a href="/jual/mobil/baru" target="_blank" rel="follow"><i class="p-mobil-br"></i>Promo Motor Baru</a></li>
+                <li><a href="/jual/mobil/bekas" target="_blank" rel="follow"><i class="p-mobil-bekas"></i>Promo Mobil Bekas</a></li>
+                <li><a href="https://my.rajamobil.com" target="_blank" rel="follow"><i class="p-mobil-jmb"></i>Jualan Motor Baru</a></li>
+                <li><a href="/pasangiklan" target="_blank" rel="follow"><i class="p-mobil-ps"></i>Pasang Iklan Mobil</a></li>
+                <li><a href="http://berita.rajamobil.com" target="_blank" rel="follow"><i class="p-mobil-bm"></i>Berita </a></li>
+                <li class="act-tracking-buy"><a href="#" target="_blank" rel="follow"><i class="p-mobil-tp"></i>Tracking Pembelian</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="head-tracker-buy" class="floating-tracker hidden-sm hidden-xs">
+        <div class="arrow-up"></div>
+        <div class="content">
+            <p> Tracking Pembelian Mobil</p>
+            <form id="tracking-form" action="sales/tracking" method="get">
+                <input type="text" name="tracking_code" class="track-buy" placeholder="Masukkan Kode Pesanan" required="">
+                <input type="submit" id="subscribe-btn" class="btn btn-rm-sm" value="Lihat">
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Menu Desktop View -->
+    <div class="header-l2">
+        <div class="container pad-menu-top">
+            <div class="logo left">
+                <a class="gaevent" href="/" data-galabel="click Logo Header" data-gakategori="Global" data-gaaction="Header Area">
+                    <img src="/assets/images/logo/logo-rajamobil.png" alt="Rajamobil">
+                </a>
+            </div>
+
+            {% include 'general/themes/top-search.twig' %}
+
+            <div class="sudahlogin right hidden-sm hidden-xs">
+                <div class="sign-btn">
+                    <ul>
+                        <li><a class="bnt" href="/panduan/user" title="bantuan panduan user" target="_blank"><i class="icon-bantuan"></i>Bantuan</a> </li>
+                        <li><a class="btn-white-sm" href="https://my.rajamobil.com/#/loginpage" title="masuk" target="_blank">Masuk</a> </li>
+                        <li><a class="btn-rm-sm" href="https://my.rajamobil.com/#/daftarbaru" title="daftar" target="_blank">Daftar</a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cleaner"></div>
+        </div>
+    </div>
+
+    <!-- section untuk menampilkan form pencarian-->
+    <div style="clear: both;"></div>
+    {% if controller == "sales" %}
+    <div class="menu-content-pencarian open menu-banner-hide">
+        {% else %}
+        <div class="menu-content-pencarian open menu-banner-show">
+            {% endif %}
+            <!-- banner slides homepage -->
+            {% if controller == "index" %} {{ home.banner | raw }} {% endif %}
+            <!-- menu cari mobil  -->
+            {% if controller == "index" or controller in filter_array %} {% set show_btnsearch = "hidden" %} {% else %} {% set show_btnsearch = "" %} {% endif %} {% if controller != "salespromo" %}
+            <div class="container">
+                <div class="{{ show_btnsearch }} hidden-sm hidden-xs">
+                    <button class="btn btn-md btn-rm show-menu-search right">Ganti Pencarian <i class="fa fa-chevron-down"></i></button>
+                    <button class="btn btn-md btn-rm show-menu-search-btn right">Ganti Pencarian <i class="fa fa-chevron-up"></i></button>
+                </div>
+            </div>
+            {% endif %} {% include 'general/themes/main-search.twig' %}
+
+        </div>
+
+        <!-- Menu Mobile View -->
+        <div class="button-mm hidden-lg hidden-md">
+            <button class="hamburger hamburger--spin" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+        <div class="menu-samping hidden-lg hidden-md">
+            <div class="linkx left">
+                <a class="logo-side" href="/" data-galabel="click Logo Header" data-gakategori="Global" data-gaaction="Header Area">
+                    <img src="/assets/images/logo/logo-mobile-slide.svg" alt="logo rajamobil 2017" title="logo rajamobil 2017"></a>
+                <ul class="beranda">
+                    <li class="menu-beranda"><a href="/" title="Beranda" class="gaevent" data-galabel="Beranda" data-gakategori="global" data-gaaction="Header Area">Beranda</a></li>
+                </ul>
+                <hr class="menu-devider">
+                <ul class="lainnya">
+                    <li class="cari-mobil-baru-action menu-mobil-baru chevron-right"><a href="javascript:void(0)" title="Cari Mobil Baru" class="gaevent" data-galabel="Cari Mobil Baru" data-gakategori="global" data-gaaction="Header Area">Cari Mobil Baru</a></li>
+                    <li class="cari-mobil-bekas-action menu-mobil-bekas chevron-right"><a href="javascript:void(0)" title="Cari Mobil Bekas" class="gaevent" data-galabel="Cari Mobil Bekas" data-gakategori="global" data-gaaction="Header Area">Cari Mobil Bekas</a></li>
+                    <li class="menu-review-mobil"><a href="https://berita.rajamobil.com/" title="Review Mobil" class="gaevent" data-galabel="Review Mobil" data-gakategori="global" data-gaaction="Header Area">Review Mobil</a></li>
+                    <li class="menu-jualan-mobilbaru"><a href="https://my.rajamobil.com/#/home" title="Berjualan Mobil Baru" class="gaevent" data-galabel="Berjualan Mobil Baru" data-gakategori="global" data-gaaction="Header Area">Berjualan Mobil Baru</a></li>
+                    <li class="menu-pasangiklan"><a href="/pasangiklan" title="Pasang Iklan Mobil Bekas" class="gaevent" data-galabel="Pasang Iklan Mobil Bekas" data-gakategori="global" data-gaaction="Header Area">Pasang Iklan Mobil Bekas</a></li>
+                </ul>
+                <hr class="menu-devider">
+                <ul class="lainnya">
+                    <li class="menu-hubungi-kami"><a href="/panduan/user" title=" Bantuan" class="gaevent" data-galabel=" Bantuan" data-gakategori="global" data-gaaction="Header Area"> Bantuan</a></li>
+                    <li class="menu-daftar"><a href="https://my.rajamobil.com/#/daftarbaru" title="Daftar" class="gaevent" data-galabel="Daftar" data-gakategori="global" data-gaaction="Header Area">Daftar</a></li>
+                    <li class="menu-masuk"><a href="https://my.rajamobil.com/#/loginpage" title="Masuk" class="gaevent" data-galabel="Masuk" data-gakategori="global" data-gaaction="Header Area">Masuk</a></li>
+                </ul>
+            </div>
+            <div class="cleaner"></div>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <div class="carimobil-menu-samping">
+                <div class="header">
+                    <i class="fa fa-times close-mmb"> </i>
+                    <h1>Pilih Mobil Baru</h1>
+                </div>
+                <div class="content">
+                    <span></span>
+                    <div id="show-merek-mobile" class="lists"></div>
+                </div>
+            </div>
+            <div class="carimobil-model-mobile">
+                <div class="header">
+                    <i class="fa fa-times close-mmb-model"> </i>
+                    <h1>Pilih Mobil Baru</h1>
+                </div>
+                <div class="content">
+                    <div class="backto-merek">
+                        <i class="fa fa-chevron-left"> </i> Kembali ke Semua Merek
+                    </div>
+
+                    <div id="show-model-mobile" class="lists">
+                        <span id="title-merek"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</header>
+{% endblock %}
